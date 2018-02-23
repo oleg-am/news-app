@@ -1,6 +1,5 @@
 .SourceCard {
-  /* width: calc(100% / 2); */
-  min-height: 200px;
+  height: 200px;
   min-width: 200px;
   margin: 0 0 10px 0;
   padding: 5px;
