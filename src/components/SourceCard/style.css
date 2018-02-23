@@ -1,0 +1,31 @@
+.SourceCard {
+  /* width: calc(100% / 2); */
+  min-height: 200px;
+  min-width: 200px;
+  margin: 0 0 10px 0;
+  padding: 5px;
+  border: 1px solid gray;
+  position: relative;
+}
+
+.NewsCard__hover {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+
+.NewsCard__no-hover {
+  opacity: 1;
+}
+
+.NewsCard__hover * {
+  margin-bottom: 5px;
+}
+
+.SourceCard:hover .NewsCard__no-hover {
+  opacity: 0;
+}
+
+.SourceCard:hover .NewsCard__hover {
+  opacity: 1;
+}

@@ -1,0 +1,25 @@
+.FirstPage {
+  height: calc(100vh - 20px);
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+}
+
+.FirstPage__Filter {
+  width: 300px;
+}
+
+.FirstPage__NewsCards {
+  width: calc(100% - 320px);
+  min-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.FirstPage__Filter__actions {
+  display: flex;
+  justify-content: space-between;
+}
