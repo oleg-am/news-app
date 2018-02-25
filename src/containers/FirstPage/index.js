@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Block from 'components/Block';
+import Pagination from 'components/Pagination';
 import FilterSelect from 'components/FilterSelect';
 import SourceCard from 'components/SourceCard';
 import selectors from './selectors';
@@ -10,7 +11,7 @@ import * as actions from './actions';
 import { CATEGORIES, COUNTRIES, LANGUAGES } from './data';
 import './style.css';
 
-const { arrayOf, shape, string, func } = PropTypes;
+const { arrayOf, shape, string, number, func } = PropTypes;
 
 const FILTERS = {
   category: CATEGORIES,
@@ -25,6 +26,9 @@ class FirstPage extends Component {
       country: arrayOf(string).isRequired,
       language: arrayOf(string).isRequired,
     }).isRequired,
+    pagination: shape({
+      page: number.isRequired,
+    }).isRequired,
     data: arrayOf(shape({
       id: string.isRequired,
       name: string.isRequired,
@@ -33,6 +37,7 @@ class FirstPage extends Component {
     })).isRequired,
     load: func.isRequired,
     changeFilters: func.isRequired,
+    changePaginagion: func.isRequired,
     resetAllFilters: func.isRequired,
   }
 
@@ -66,8 +71,14 @@ class FirstPage extends Component {
     this.props.resetAllFilters();
   }
 
+  changePaginagion = key => (page) => {
+    const { changePaginagion } = this.props;
+
+    changePaginagion(key, page);
+  }
+
   render() {
-    const { data, filters } = this.props;
+    const { data, filters, pagination: { page, pageCount } } = this.props;
 
     return (
       <div className="FirstPage">
@@ -91,18 +102,25 @@ class FirstPage extends Component {
           </div>
         </Block>
         <Block className="FirstPage__NewsCards">
-          {data.map(({ id, name, url, description }) => (
-            <SourceCard
-              key={id}
-              id={id}
-              name={name}
-              url={url}
-              description={description}
-              link={
-                <Link to={{ pathname: `/${id}`, state: data }} >Show news</Link>
-              }
-            />
-          ))}
+          <div className="FirstPage__NewsCards__list">
+            {data.map(({ id, name, url, description }) => (
+              <SourceCard
+                key={id}
+                id={id}
+                name={name}
+                url={url}
+                description={description}
+                link={
+                  <Link to={{ pathname: `/${id}`, state: data }} >Show news</Link>
+                }
+              />
+            ))}
+          </div>
+          <Pagination
+            pageCount={pageCount}
+            value={page}
+            onChange={this.changePaginagion('page')}
+          />
         </Block>
       </div>
     );

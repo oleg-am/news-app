@@ -7,6 +7,10 @@ export const initialState = {
     country: [],
     language: [],
   },
+  pagination: {
+    limit: 6,
+    page: 1,
+  },
   data: [],
 };
 
@@ -20,6 +24,20 @@ export default combineReducers({
         };
       case types.RESET_ALL_FILTERS:
         return initialState.filters;
+      default:
+        return state;
+    }
+  },
+  pagination(state = initialState.pagination, action) {
+    switch (action.type) {
+      case types.CHANGE_PAGINAGION:
+        return {
+          ...state,
+          [action.key]: action.value,
+        };
+      case types.CHANGE_FILTERS:
+      case types.RESET_ALL_FILTERS:
+        return initialState.pagination;
       default:
         return state;
     }

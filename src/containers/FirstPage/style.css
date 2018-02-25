@@ -12,11 +12,14 @@
 .FirstPage__NewsCards {
   width: calc(100% - 320px);
   min-width: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.FirstPage__NewsCards__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
 
 .FirstPage__Filter__actions {

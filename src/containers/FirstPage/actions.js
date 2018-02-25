@@ -6,6 +6,10 @@ export const changeFilters = (key, value) => ({
   type: types.CHANGE_FILTERS, key, value,
 });
 
+export const changePaginagion = (key, value) => ({
+  type: types.CHANGE_PAGINAGION, key, value,
+});
+
 export const resetAllFilters = () => ({
   type: types.RESET_ALL_FILTERS,
 });
