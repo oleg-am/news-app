@@ -18,8 +18,11 @@ export const defaultProps = {
   onClick: null,
 };
 
+const getImgSrc = url => `https://besticon-demo.herokuapp.com/icon?url=${url}&size=70..120..200`;
+
 const SourceCard = ({ name, url, description, link, onClick }) => (
   <div role="button" onClick={onClick} className="SourceCard">
+    <img alt={name} width="100%" src={getImgSrc(url)} />
     <div className="NewsCard__no-hover">{name}</div>
     <div className="NewsCard__hover">
       <div><a href={url} target="_blank">{url}</a></div>

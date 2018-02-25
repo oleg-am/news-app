@@ -74,10 +74,11 @@ class SecondPage extends Component {
         <Link to="/">Go back</Link>
         <div className="SecondPage">
           <Block className="SecondPage__Sources">
-            {filteredSources.map(({ id, name, description }) => (
+            {filteredSources.map(({ id, url, name, description }) => (
               <SourceCard
                 key={id}
                 name={name}
+                url={url}
                 description={description}
                 onClick={this.goToNewsPage(id)}
               />

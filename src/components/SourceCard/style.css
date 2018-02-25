@@ -1,24 +1,36 @@
 .SourceCard {
   height: 200px;
-  min-width: 200px;
+  width: 200px;
   margin: 0 0 10px 0;
   padding: 5px;
-  border: 1px solid gray;
   position: relative;
 }
 
-.NewsCard__hover {
+.SourceCard img {
   position: absolute;
   top: 0;
-  opacity: 0;
+  bottom: 0;
+  left: 0;
+  width: 200px;
 }
 
-.NewsCard__no-hover {
-  opacity: 1;
+.SourceCard:hover img {
+  opacity: 0.3;
+}
+
+.NewsCard__hover {
+  opacity: 0;
 }
 
 .NewsCard__hover * {
   margin-bottom: 5px;
+}
+
+.NewsCard__no-hover {
+  position: relative;
+  opacity: 1;
+  text-align: center;
+  font-weight: bold;
 }
 
 .SourceCard:hover .NewsCard__no-hover {
@@ -26,5 +38,7 @@
 }
 
 .SourceCard:hover .NewsCard__hover {
+  position: relative;
   opacity: 1;
+  width: 200px;
 }
