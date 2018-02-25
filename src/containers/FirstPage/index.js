@@ -13,6 +13,13 @@ import './style.css';
 
 const { arrayOf, shape, string, number, func } = PropTypes;
 
+const dataPropTypes = arrayOf(shape({
+  id: string.isRequired,
+  name: string.isRequired,
+  url: string.isRequired,
+  description: string.isRequired,
+}));
+
 const FILTERS = {
   category: CATEGORIES,
   country: COUNTRIES,
@@ -29,12 +36,8 @@ class FirstPage extends Component {
     pagination: shape({
       page: number.isRequired,
     }).isRequired,
-    data: arrayOf(shape({
-      id: string.isRequired,
-      name: string.isRequired,
-      url: string.isRequired,
-      description: string.isRequired,
-    })).isRequired,
+    data: dataPropTypes.isRequired,
+    dataWithPagination: dataPropTypes.isRequired,
     load: func.isRequired,
     changeFilters: func.isRequired,
     changePaginagion: func.isRequired,
@@ -78,7 +81,7 @@ class FirstPage extends Component {
   }
 
   render() {
-    const { data, filters, pagination: { page, pageCount } } = this.props;
+    const { data, dataWithPagination, filters, pagination: { page, pageCount } } = this.props;
 
     return (
       <div className="FirstPage">
@@ -103,7 +106,7 @@ class FirstPage extends Component {
         </Block>
         <Block className="FirstPage__NewsCards">
           <div className="FirstPage__NewsCards__list">
-            {data.map(({ id, name, url, description }) => (
+            {dataWithPagination.map(({ id, name, url, description }) => (
               <SourceCard
                 key={id}
                 id={id}

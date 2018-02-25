@@ -36,5 +36,6 @@ const paginationWithPageCount = createSelector(filteredData, pagination, (list, 
 export default createStructuredSelector({
   filters,
   pagination: paginationWithPageCount,
-  data: dataWithPagination,
+  data,
+  dataWithPagination,
 });
