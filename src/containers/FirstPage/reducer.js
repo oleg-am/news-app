@@ -30,7 +30,7 @@ export default combineReducers({
   },
   pagination(state = initialState.pagination, action) {
     switch (action.type) {
-      case types.CHANGE_PAGINAGION:
+      case types.CHANGE_PAGINATION:
         return {
           ...state,
           [action.key]: action.value,

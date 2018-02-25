@@ -41,7 +41,7 @@ class FirstPage extends Component {
     dataWithPagination: dataPropTypes.isRequired,
     load: func.isRequired,
     changeFilters: func.isRequired,
-    changePaginagion: func.isRequired,
+    changePagination: func.isRequired,
     resetAllFilters: func.isRequired,
   }
 
@@ -75,10 +75,10 @@ class FirstPage extends Component {
     this.props.resetAllFilters();
   }
 
-  changePaginagion = key => (e) => {
-    const { changePaginagion } = this.props;
+  changePagination = key => (e) => {
+    const { changePagination } = this.props;
 
-    changePaginagion(key, e.target ? +e.target.value : e);
+    changePagination(key, e.target ? +e.target.value : e);
   }
 
   render() {
@@ -126,11 +126,11 @@ class FirstPage extends Component {
             ))}
           </div>
           <div className="FirstPage__pagination">
-            <LimitSelect value={limit} onChange={this.changePaginagion('limit')} />
+            <LimitSelect value={limit} onChange={this.changePagination('limit')} />
             <Pagination
               pageCount={pageCount}
               value={page}
-              onChange={this.changePaginagion('page')}
+              onChange={this.changePagination('page')}
             />
           </div>
         </Block>

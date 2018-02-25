@@ -6,8 +6,8 @@ export const changeFilters = (key, value) => ({
   type: types.CHANGE_FILTERS, key, value,
 });
 
-export const changePaginagion = (key, value) => ({
-  type: types.CHANGE_PAGINAGION, key, value,
+export const changePagination = (key, value) => ({
+  type: types.CHANGE_PAGINATION, key, value,
 });
 
 export const resetAllFilters = () => ({
