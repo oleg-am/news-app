@@ -18,7 +18,7 @@ export const defaultProps = {
 };
 
 const Select = ({ value, options, onChange, placeholder, disabled }) => (
-  <select className="Select" value={value} onChange={onChange} disabled={disabled} >
+  <select className="Select form-control" value={value} onChange={onChange} disabled={disabled} >
     {placeholder && <option key="default" value="default">{placeholder}</option>}
     {options.map(item => (
       <option key={item} value={item}>{item}</option>
