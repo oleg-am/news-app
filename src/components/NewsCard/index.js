@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css';
 
 const { string } = PropTypes;
 
@@ -11,8 +12,8 @@ export const propTypes = {
 };
 
 const NewsCard = ({ title, urlToImage, author, publishedAt }) => (
-  <div>
-    <img alt={title} src={urlToImage} />
+  <div className="NewsCard">
+    <img className="NewsCard__img" alt={title} src={urlToImage} />
     <h2>{title}</h2>
     <div>{author}</div>
     <div>{publishedAt}</div>
