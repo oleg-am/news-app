@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Block from 'components/Block';
 import Pagination from 'components/Pagination';
+import { LimitSelect } from 'components/Select';
 import FilterSelect from 'components/FilterSelect';
 import SourceCard from 'components/SourceCard';
 import selectors from './selectors';
@@ -74,14 +75,19 @@ class FirstPage extends Component {
     this.props.resetAllFilters();
   }
 
-  changePaginagion = key => (page) => {
+  changePaginagion = key => (e) => {
     const { changePaginagion } = this.props;
 
-    changePaginagion(key, page);
+    changePaginagion(key, e.target ? +e.target.value : e);
   }
 
   render() {
-    const { data, dataWithPagination, filters, pagination: { page, pageCount } } = this.props;
+    const {
+      data,
+      dataWithPagination,
+      filters,
+      pagination: { limit, page, pageCount },
+    } = this.props;
 
     return (
       <div className="FirstPage">
@@ -119,11 +125,14 @@ class FirstPage extends Component {
               />
             ))}
           </div>
-          <Pagination
-            pageCount={pageCount}
-            value={page}
-            onChange={this.changePaginagion('page')}
-          />
+          <div className="FirstPage__pagination">
+            <LimitSelect value={limit} onChange={this.changePaginagion('limit')} />
+            <Pagination
+              pageCount={pageCount}
+              value={page}
+              onChange={this.changePaginagion('page')}
+            />
+          </div>
         </Block>
       </div>
     );

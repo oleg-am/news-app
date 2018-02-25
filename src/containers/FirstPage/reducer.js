@@ -34,8 +34,16 @@ export default combineReducers({
         return {
           ...state,
           [action.key]: action.value,
+          ...(action.key === 'limit'
+            ? { page: initialState.pagination.page }
+            : {}
+          ),
         };
       case types.CHANGE_FILTERS:
+        return {
+          ...state,
+          page: initialState.pagination.page,
+        };
       case types.RESET_ALL_FILTERS:
         return initialState.pagination;
       default:
