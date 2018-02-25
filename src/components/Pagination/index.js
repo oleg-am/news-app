@@ -32,7 +32,7 @@ const Pagination = ({ className, value, pageCount, onChange }) => {
         breakLabel={<span>...</span>}
         breakClassName="break"
         onPageChange={onPageChange}
-        containerClassName="pagination pagination-sm"
+        containerClassName="pagination"
         subContainerClassName="pages pagination"
         activeClassName="active"
         disableInitialCallback
