@@ -28,5 +28,6 @@
 }
 
 .FirstPage__pagination {
+  margin-top: 40px;
   display: flex;
 }
