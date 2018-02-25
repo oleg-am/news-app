@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Block from 'components/Block';
-import NewsCard from 'components/NewsCard';
+import NewsCard, { propTypes as newsCardPropTypes } from 'components/NewsCard';
 import SourceCard from 'components/SourceCard';
 import selectors from './selectors';
 import * as actions from './actions';
@@ -27,10 +27,7 @@ class SecondPage extends Component {
       }).isRequired,
     }).isRequired,
     data: arrayOf(shape({
-      title: string.isRequired,
-      urlToImage: string.isRequired,
-      author: string.isRequired,
-      publishedAt: string.isRequired,
+      ...newsCardPropTypes,
     })).isRequired,
     history: shape({
       push: func.isRequired,
