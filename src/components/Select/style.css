@@ -1,3 +1,7 @@
 .Select {
   width: 100%;
 }
+
+.Select.small {
+  width: 75px;
+}
