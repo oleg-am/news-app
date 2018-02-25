@@ -1,0 +1,15 @@
+.Pagination .pagination > li {
+  cursor: pointer;
+}
+
+.Pagination .pagination li.break {
+  cursor: default;
+}
+
+.Pagination .pagination li.previous a {
+  margin-right: 10px;
+}
+
+.Pagination .pagination li.next a {
+  margin-left: 10px;
+}
